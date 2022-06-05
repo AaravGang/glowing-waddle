@@ -1,14 +1,9 @@
 from constants import *
 from utils import *
 import pygame
-from math import sqrt
-
-root3 = sqrt(3)
 
 
 class Board:
-    road_width = 10
-
     def __init__(
         self, center: tuple, size: tuple,
     ):
@@ -25,7 +20,6 @@ class Board:
         # hexagonal border of the board
         self.border_side_length = min(*self.size) / 2
         self.border_pts = hexagon(self.origin, self.border_side_length, flat=True)
-        self.border_width = 20
 
         # hexagonal hexes
         self.hexgrid, self.hexmap = [], {}
@@ -91,6 +85,7 @@ class Board:
         # dynamically determine the width and side length of each hex
         hex_width = 2 * self.border_side_length / (n_rows + 1)
         side_length = root3 / 2 * hex_width
+        self.road_width = hex_width / 10
 
         # create rows of hexes
         for i in range(-n_rows // 2 + 1, n_rows // 2 + 1):

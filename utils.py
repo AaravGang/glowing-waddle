@@ -1,14 +1,13 @@
-from math import sqrt
+from constants import root3
 from button import Button
 import pygame
 
-
+# co-ordinates of a regular hexagon, provided center and side length
 def hexagon(center, l, flat=False):
     centerx, centery = center
 
-    root3 = sqrt(3)
-    h = root3 / 2 * l
-    x = h / root3
+    h = root3 / 2 * l  # (#6 - #2)/2
+    x = h / root3  # (#1 – #4)/2
 
     # flat top hexagon
     """ 
@@ -30,6 +29,7 @@ def hexagon(center, l, flat=False):
         ]
 
     # pointed top hexagon
+
     #
     #      #1
     #      ／＼

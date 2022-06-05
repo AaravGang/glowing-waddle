@@ -1,6 +1,12 @@
+import math
 import pygame
 
 pygame.font.init()
+
+
+# Math constants
+root3 = math.sqrt(3)
+
 
 # Catan constants
 num_hexes = 19
