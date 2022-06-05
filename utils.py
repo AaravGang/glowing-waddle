@@ -1,13 +1,8 @@
 from math import sqrt
+from button import Button
+import pygame
 
-class Hex:
-    hex_size = 50
-    def __init__(self, terraintype, dicerollnumber:int, boardid:str):
-        self.terrain = terraintype
-        self.number = dicerollnumber
-        self.pos = boardid
 
-    
 def hexagon(center, l, flat=False):
     centerx, centery = center
 
@@ -16,6 +11,14 @@ def hexagon(center, l, flat=False):
     x = h / root3
 
     # flat top hexagon
+    """ 
+      /#5––––––#6\
+     /            \
+    /            #1\
+    \#4            /
+     \            /
+      \#3––––––#2/
+    """
     if flat:
         return [
             (centerx + l, centery),
@@ -27,6 +30,21 @@ def hexagon(center, l, flat=False):
         ]
 
     # pointed top hexagon
+    #
+    #      #1
+    #      ／＼
+    #     ／  ＼
+    #    ／    ＼
+    # #2／      ＼#6
+    #   |       |
+    #   |       |
+    #   |       |
+    # #3＼      ／#5
+    #    ＼    ／
+    #     ＼  ／
+    #      ＼／
+    #      #4
+
     else:
         return [
             (centerx, centery - l),
@@ -36,4 +54,11 @@ def hexagon(center, l, flat=False):
             (centerx + h, centery + x),
             (centerx + h, centery - x),
         ]
+
+
+class Hex(Button):
+    def __init__(self, parent: pygame.Surface, rect, color, function, points, **kwargs):
+        super().__init__(
+            parent, rect, color, function=function, shape=points, **kwargs,
+        )
 

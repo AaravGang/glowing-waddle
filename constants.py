@@ -1,3 +1,7 @@
+import pygame
+
+pygame.font.init()
+
 # Catan constants
 num_hexes = 19
 num_terrains = 5
@@ -32,8 +36,28 @@ WHITE = (255, 255, 255)
 RED = (255, 0, 0)
 PINK = (200, 0, 50)
 GREEN = (0, 255, 0)
-OLIVE_GREEN = (50, 200, 0)
+OLIVE_GREEN = (50, 100, 0)
 BLUE = (0, 0, 255)
 NAVY = (0, 0, 130)
 LIGHT_BLUE = (89, 154, 215)
+YELLOW = (235, 214, 151)
+CYAN = (0, 255, 255)
+LIGHT_BROWN = (205, 144, 96)
+ORANGE = (206, 11, 43)
+
+# All the fonts
+class Fonts:
+    default_font_path = "static/fonts"
+
+    chalkduster = pygame.font.Font(f"{default_font_path}/Chalkduster.ttf", 50,)
+
+
+# Button Styles
+DEFAULT_BUTTON_STYLE = {
+    "font": Fonts.chalkduster,
+    "hover_color": OLIVE_GREEN,
+    "clicked_color": CYAN,
+    "clicked_font_color": LIGHT_BROWN,
+    "hover_font_color": ORANGE,
+}
 

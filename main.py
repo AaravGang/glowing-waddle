@@ -22,6 +22,7 @@ def main():
             if e.type == pygame.QUIT:
                 run = False
                 break
+            board.check_event(e)
 
         draw()
 
